@@ -1,0 +1,11 @@
+backend/__pycache__
+media
+chroma
+rag/__pycache__
+rag/migrations
+history.sqlite3
+history.sqlite3-shm
+history.sqlite3-wal
+authentication/__pycache__
+authentication/migrations
+backend/settings.py
