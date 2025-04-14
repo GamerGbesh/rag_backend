@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
-from django.db.models import Q, F
+from django.db.models import Q
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
@@ -18,6 +18,10 @@ from .doc_add import process_file
 @permission_classes([IsAuthenticated])
 def create_library(request):
     """Create a new library"""
+    libraries = Libraries.objects.filter(Q(members__user=request.user) 
+                                         | Q(creator=request.user, joinable=True)).distinct().count()
+    if libraries >= 2:
+        return Response({"error": "You can only have 3 libraries"}, status=status.HTTP_400_BAD_REQUEST)
     serializer = LibrariesSerializer(data=request.data, context={"request": request})
     if serializer.is_valid():
         serializer.save(creator=request.user)
@@ -29,6 +33,10 @@ def create_library(request):
 @permission_classes([IsAuthenticated])
 def join_library(request):
     """Join an existing library with an entry key."""
+    libraries = Libraries.objects.filter(Q(members__user=request.user) 
+                                         | Q(creator=request.user, joinable=True)).distinct().count()
+    if libraries >= 2:
+        return Response({"error": "You can only have 3 libraries"}, status=status.HTTP_400_BAD_REQUEST)
     serializer = JoinLibrariesSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -37,7 +45,10 @@ def join_library(request):
                                  library_name=serializer.validated_data['library_name'],
                                  entry_key=serializer.validated_data['entry_key']
                                  )
-    
+    member_count = Members.objects.filter(library=library).count()
+
+    if member_count >= 15:
+        return Response({"error": "Library is full"}, status=status.HTTP_400_BAD_REQUEST)    
     if not library.joinable:
         return Response({"message": "Library is not joinable"}, status=status.HTTP_403_FORBIDDEN)
     if library.creator == request.user:
@@ -93,10 +104,13 @@ def manage_admin(request):
     user_id = request.data.get("user_id")
     user = get_object_or_404(User, id=user_id)
     library = get_object_or_404(Libraries, id=library_id)
+    admins = Admins.objects.filter(library=library).count()
     if library.creator == user:
         return Response({"error": "You cannot add yourself as an admin"}, status=status.HTTP_400_BAD_REQUEST)
     try :
         if request.method == "POST":
+            if admins >= 3:
+                return Response({"error": "You cannot have more than 3 admins"}, status=status.HTTP_400_BAD_REQUEST)
             Admins.objects.get_or_create(user=user, library=library)
             message = "Admin added successfully"
         else:
@@ -124,6 +138,10 @@ def manage_course(request):
 
         if Courses.objects.filter(library=library, course_name=request.data.get("course_name")).exists():
             return Response({"error": "Course with this name already exists"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        courses = Courses.objects.filter(library=library).count()
+        if courses >= 3:
+            return Response({"error": "You can only have 3 courses per library"}, status=status.HTTP_400_BAD_REQUEST)
 
         course = serializer.save(library=library)
         return Response({"message": "Course added successfully", "course_id": course.id},status=status.HTTP_201_CREATED)
@@ -141,10 +159,14 @@ def add_document(request):
     """Add a document to a course."""
     if "file" not in request.FILES:
         return Response({"error": "No file provided"}, status=status.HTTP_400_BAD_REQUEST)
-    
+
     course_id = request.data.get("course_id")
     course = get_object_or_404(Courses, id=course_id)
 
+    documents = Documents.objects.filter(course=course).count()
+    if documents >= 5:
+        return Response({"error": "You can only have 5 documents per course"}, status=status.HTTP_400_BAD_REQUEST)
+    
     try:
         document = Documents.objects.create(
             user=request.user,
@@ -265,8 +287,18 @@ def query_llm(request):
     course = get_object_or_404(Courses, id=course_id)
     documents = Documents.objects.filter(course=course)
     document_ids = [document.id for document in documents]
-    # qa_chain = get_chain(document_ids)
-    response = get_chain(document_ids, query, course_id, request.user.id)
+    if not query:
+        return Response({"error": "Query is required"}, status=status.HTTP_400_BAD_REQUEST)
+    if not document_ids:
+        return Response({"error": "No documents found"}, status=status.HTTP_404_NOT_FOUND)
+    if not course:
+        return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
+    if not documents:
+        return Response({"error": "No documents found"}, status=status.HTTP_404_NOT_FOUND)
+    try:
+        response = get_chain(document_ids, query, course_id, request.user.id)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return Response({"LLM_response": response})
 
 

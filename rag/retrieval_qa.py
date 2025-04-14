@@ -33,13 +33,7 @@ vectorstore = Chroma(
 
 def get_chain(document_ids: list[int], query:str, course_id:int, user_id:int) -> str:
     """
-    Creates a RetrievalQA chain for document-based question answering.
-    
-    Args:
-        document_ids: List of document IDs to filter the retrieval
-        
-    Returns:
-        Configured RetrievalQA chain
+    This deals with generating chat responses when users ask
     """
     retriever = vectorstore.as_retriever(
         search_kwargs={"k": 5, "filter": {"id": {"$in": document_ids}}}
@@ -49,8 +43,13 @@ def get_chain(document_ids: list[int], query:str, course_id:int, user_id:int) ->
 
     class State(TypedDict):
         messages: Annotated[list, add_messages]
+
+    template = """You are an educational assistant. Answer the question based on the context provided. 
+                If the questions seems off-topic, ask for clarification. If it's still off topic then say you can't help.
+                If the question is not clear, ask for clarification."""
         
     prompt = ChatPromptTemplate.from_messages([
+        template,
         MessagesPlaceholder(variable_name="messages", optional=True),
         ("user", "{input}")
     ])
@@ -110,21 +109,6 @@ def get_chain(document_ids: list[int], query:str, course_id:int, user_id:int) ->
 
     return stream_graph_updates()
     
-    # memory = ConversationBufferMemory(
-    #     memory_key="chat_history",
-    #     return_messages=True,
-    # )
-    
-    
-    # qa_chain = RetrievalQA.from_chain_type(
-    #     retriever=retriever, 
-    #     llm=llm,
-    #     memory=memory,
-       
-
-    # )
-    # return qa_chain
-
 
 def get_quiz(document_id:int, number_of_questions:int) -> dict[str, Any]:
     """
@@ -229,16 +213,12 @@ def get_quiz(document_id:int, number_of_questions:int) -> dict[str, Any]:
             
             except Exception as json_error:
                 # Final fallback: Manual extraction
-                return {
-                    "status": "error",
-                    "error": f"Parsing failed: {str(parse_error)}. JSON extraction failed: {str(json_error)}",
-                    "raw_output": raw_output,
-                    "suggestion": "The LLM might not be following the format instructions correctly. Try simplifying your prompt."
-                }
+                raise Exception(
+                    "Failed to parse quiz questions. Please check the output format."
+                ) from json_error
     except Exception as e:
-        return {
-            "status": "error",
-            "error": str(e)
-        }
+        raise Exception(
+            "Failed to generate quiz questions. Please check the input and try again."
+        ) from e
 
     
