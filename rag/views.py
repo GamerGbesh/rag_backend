@@ -1,16 +1,20 @@
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.db.models import Q
+# from django.utils.decorators import async_only_middleware
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
+# from asgiref.sync import sync_to_async
 from .models import  *
 from .permissions import *
 from .serializers import *
 from .roles import *
-from .retrieval_qa import get_chain, get_quiz
+from .retrieval_qa import get_chain, get_quiz, get_response
 from .doc_add import process_file
+
 
 
 # Create your views here.
@@ -212,6 +216,7 @@ def get_libraries(request):
     libraries = Libraries.objects.filter(Q(members__user=request.user) 
                                          | Q(creator=request.user, joinable=True)).distinct()
     user_library = Libraries.objects.get(creator=request.user, joinable=False)
+    # print(get_response())
     response = {
         "header": "Libraries",
         "user": LibrariesSerializer(user_library).data,
@@ -288,18 +293,19 @@ def query_llm(request):
     documents = Documents.objects.filter(course=course)
     document_ids = [document.id for document in documents]
     if not query:
-        return Response({"error": "Query is required"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "Query is required"})
     if not document_ids:
-        return Response({"error": "No documents found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"error": "No documents found"})
     if not course:
-        return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"error": "Course not found"})
     if not documents:
-        return Response({"error": "No documents found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"error": "No documents found"})
     try:
         response = get_chain(document_ids, query, course_id, request.user.id)
+        return Response({"LLM_response": response})
     except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    return Response({"LLM_response": response})
+        return Response({"error": str(e)})
+    
 
 
 @api_view(["GET"])
