@@ -32,7 +32,6 @@ pillow==11.1.0
 psycopg==3.2.6
 psycopg-pool==3.2.6
 psycopg2==2.9.10
-psycopg2-binary==2.9.10
 pydantic==2.10.6
 PyJWT==2.9.0
 PyMuPDF==1.25.4
