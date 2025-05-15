@@ -35,7 +35,7 @@ def validate_file_size(file):
 def validate_file_extension(value):
     ext = os.path.splitext(value.name)[1]  
     valid_extensions = settings.FILE_EXTENSIONS
-    if not ext.lower() in valid_extensions:
+    if ext.lower() not in valid_extensions:
         raise ValidationError('Unsupported file extension.')
     
 class Documents(models.Model):
