@@ -364,4 +364,4 @@ Uploaded documents are stored in `media/documents/YYYY/MM/DD/` directory structu
 
 ## Support
 
-For questions or issues, please [create an issue](https://github.com/GamerGbesh/rag_backend/issues) or contact [me](gbesh.12@gmail.com).
+For questions or issues, please [create an issue](https://github.com/GamerGbesh/rag_backend/issues) or contact [me](mailto:peymensah@gmail.com).
