@@ -20,7 +20,6 @@ conn = sqlite3.connect("history.sqlite3", check_same_thread=False)
 embed_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 chroma_client = chromadb.PersistentClient()
 llm = ChatOllama(model="llama3.2:latest",
-                  device="cuda",
                     temperature=0.7
                     )
 

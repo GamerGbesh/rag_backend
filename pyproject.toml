@@ -1,0 +1,48 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chroma-hnswlib==0.7.6",
+    "chromadb==0.6.3",
+    "dj-database-url==2.3.0",
+    "django==5.1.4",
+    "django-cors-headers==4.7.0",
+    "django-jinja==2.11.0",
+    "djangorestframework==3.15.2",
+    "djangorestframework-simplejwt==5.5.0",
+    "fastapi==0.115.11",
+    "huggingface-hub==0.29.3",
+    "jinja2==3.1.5",
+    "langchain==0.3.20",
+    "langchain-anthropic==0.3.3",
+    "langchain-chroma==0.2.2",
+    "langchain-community==0.3.19",
+    "langchain-core==0.3.45",
+    "langchain-huggingface==0.1.2",
+    "langchain-ollama==0.2.2",
+    "langchain-openai==0.3.1",
+    "langchain-text-splitters==0.3.6",
+    "langdetect==1.0.9",
+    "langgraph==0.3.26",
+    "langgraph-checkpoint==2.0.24",
+    "langgraph-checkpoint-postgres==2.0.19",
+    "langgraph-checkpoint-sqlite==2.0.6",
+    "langgraph-prebuilt==0.1.8",
+    "langgraph-sdk==0.1.61",
+    "langsmith==0.3.27",
+    "ollama==0.4.7",
+    "pathlib==1.0.1",
+    "pillow==11.1.0",
+    "psycopg==3.2.6",
+    "psycopg-pool==3.2.6",
+    "psycopg2==2.9.10",
+    "pydantic==2.10.6",
+    "pyjwt==2.9.0",
+    "pymupdf==1.25.4",
+    "pypdf==5.4.0",
+    "pytesseract==0.3.13",
+    "python-pptx==1.0.2",
+]
