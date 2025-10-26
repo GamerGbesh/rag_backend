@@ -1,9 +1,10 @@
-from django.db import models
-from django.conf import settings
 import os
 
 from django.core.exceptions import ValidationError
-from .doc_add import delete_from_qdrant
+from django.db import models
+from django.conf import settings
+
+from .services.document_utils import delete_from_qdrant
 
 class Libraries(models.Model):
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="created_libraries")
@@ -49,7 +50,7 @@ class Documents(models.Model):
     
     def delete(self, *args, **kwargs):
         self.file.delete()
-        delete_from_qdrant(self.id)
+        delete_from_qdrant(self.id) #type: ignore
         super().delete(*args, **kwargs)
 
 

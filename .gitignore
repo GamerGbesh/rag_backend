@@ -8,4 +8,3 @@ history.sqlite3-shm
 history.sqlite3-wal
 authentication/__pycache__
 authentication/migrations
-backend/settings.py

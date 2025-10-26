@@ -1,19 +1,24 @@
-from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.db.models import Q
-# from django.utils.decorators import async_only_middleware
+
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
-# from asgiref.sync import sync_to_async
-from .models import  *
-from .permissions import *
-from .serializers import *
-from .roles import *
-from .retrieval_qa import get_chain, get_quiz, get_response
-from .doc_add import process_file
+
+import logging
+
+from .exceptions import LLMServiceError
+from .models import Libraries, Courses, Documents, Members, Admins
+from .permissions import IsLibraryCreator, IsLibraryCreatorOrAdmin, IsLibraryMember 
+from .serializers import LibrariesSerializer, CoursesSerializer, DocumentsSerializer, MembersSerializer, JoinLibrariesSerializer, QueryLLMSerializer, RemoveMemberSerializer
+from .roles import has_edit_permission, is_creator
+from .services.langgraph_service import LangGraphService
+from .services.document_service import DocumentService
+from .services.course_service import CourseService
+
+logger = logging.getLogger(__name__)
 
 
 
@@ -22,63 +27,43 @@ from .doc_add import process_file
 @permission_classes([IsAuthenticated])
 def create_library(request):
     """Create a new library"""
-    libraries = Libraries.objects.filter(Q(members__user=request.user) 
-                                         | Q(creator=request.user, joinable=True)).distinct().count()
-    if libraries >= 2:
-        return Response({"error": "You can only have 3 libraries"}, status=status.HTTP_400_BAD_REQUEST)
+    logger.info("create_library called by user=%s data=%s", request.user.username if request.user else None, request.data)
     serializer = LibrariesSerializer(data=request.data, context={"request": request})
-    if serializer.is_valid():
-        serializer.save(creator=request.user)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    serializer.is_valid(raise_exception=True)
+    serializer.save(creator=request.user)
+    logger.info("Library created by user=%s", request.user.username if request.user else None)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def join_library(request):
     """Join an existing library with an entry key."""
-    libraries = Libraries.objects.filter(Q(members__user=request.user) 
-                                         | Q(creator=request.user, joinable=True)).distinct().count()
-    if libraries >= 2:
-        return Response({"error": "You can only have 3 libraries"}, status=status.HTTP_400_BAD_REQUEST)
+    logger.info("join_library called by user=%s data=%s", request.user.username if request.user else None, request.data)
     serializer = JoinLibrariesSerializer(data=request.data)
-    if not serializer.is_valid():
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    library = get_object_or_404(Libraries,
-                                 library_name=serializer.validated_data['library_name'],
-                                 entry_key=serializer.validated_data['entry_key']
-                                 )
-    member_count = Members.objects.filter(library=library).count()
-
-    if member_count >= 15:
-        return Response({"error": "Library is full"}, status=status.HTTP_400_BAD_REQUEST)    
-    if not library.joinable:
-        return Response({"message": "Library is not joinable"}, status=status.HTTP_403_FORBIDDEN)
-    if library.creator == request.user:
-        return Response({"message": "You are the creator of this library"}, status=status.HTTP_400_BAD_REQUEST)
-    if library.members.filter(user=request.user).exists():
-        return Response({"message": "Already a member of this library"}, status=status.HTTP_400_BAD_REQUEST)
-    
-    
-    Members.objects.get_or_create(user=request.user, library=library)
-    return Response({"message": "Library joined successfully"})
+    if serializer.is_valid(raise_exception=True):
+        library = serializer.library
+        Members.objects.get_or_create(user=request.user, library=library)
+        logger.info("User %s joined library", request.user.username if request.user else None)
+        return Response({"message": "Library joined successfully"})
     
 
 @api_view(["DELETE"])
 @permission_classes([IsAuthenticated, IsLibraryCreator])
 def remove_member(request):
     """Remove a member from a library."""
-    library_id = request.data.get("library_id")
-    user_id = request.data.get("user_id")
-    library = Libraries.objects.get(id=library_id)
-    user = User.objects.get(id=user_id)
-    member = get_object_or_404(Members, user=user, library=library)
+    serializer = RemoveMemberSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    user = serializer.validated_data["user"]
+    library = serializer.validated_data["library"]
+    member = serializer.validated_data["member"]
+
     try:
         admin = Admins.objects.get(user=user, library=library)
         admin.delete()
     except Admins.DoesNotExist:
         pass
+
     member.delete()
     return Response({"message": "Member removed successfully"})
 
@@ -111,19 +96,22 @@ def manage_admin(request):
     admins = Admins.objects.filter(library=library).count()
     if library.creator == user:
         return Response({"error": "You cannot add yourself as an admin"}, status=status.HTTP_400_BAD_REQUEST)
-    try :
+    try:
         if request.method == "POST":
+            logger.info("Adding admin user_id=%s to library_id=%s by user=%s", getattr(user, "id", None), getattr(library, "id", None), request.user.username if request.user else None)
             if admins >= 3:
                 return Response({"error": "You cannot have more than 3 admins"}, status=status.HTTP_400_BAD_REQUEST)
             Admins.objects.get_or_create(user=user, library=library)
             message = "Admin added successfully"
         else:
+            logger.info("Removing admin user_id=%s from library_id=%s by user=%s", getattr(user, "id", None), getattr(library, "id", None), request.user.username if request.user else None)
             admin = get_object_or_404(Admins, user=user, library=library)
             admin.delete()
             message = "Admin removed successfully"
     except Exception as e:
+        logger.exception("manage_admin failed: %s", e)
         message = str(e)
-        
+
     return Response({"message": message})
 
 
@@ -131,74 +119,25 @@ def manage_admin(request):
 @permission_classes([IsAuthenticated, IsLibraryCreatorOrAdmin])
 def manage_course(request):
     """Add or remove a course from a library."""
-    library_id = request.data.get("library_id")
-    library = get_object_or_404(Libraries, id=library_id)
-
     if request.method == "POST":
-        serializer = CoursesSerializer(data=request.data)
-
-        if not serializer.is_valid():
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-        if Courses.objects.filter(library=library, course_name=request.data.get("course_name")).exists():
-            return Response({"error": "Course with this name already exists"}, status=status.HTTP_400_BAD_REQUEST)
-        
-        courses = Courses.objects.filter(library=library).count()
-        if courses >= 3:
-            return Response({"error": "You can only have 3 courses per library"}, status=status.HTTP_400_BAD_REQUEST)
-
-        course = serializer.save(library=library)
-        return Response({"message": "Course added successfully", "course_id": course.id},status=status.HTTP_201_CREATED)
-    
-    else:
-        course_id = request.data.get("course_id")
-        course = get_object_or_404(Courses, id=course_id, library=library)
-        course.delete()
-        return Response({"message": "Course deleted successfully"})
+        logger.info("create_course called by user=%s data=%s", request.user.username if request.user else None, request.data)
+        return CourseService.create_course(request)
+    return CourseService.delete_course(request)
 
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated, IsLibraryCreatorOrAdmin])
 def add_document(request):
     """Add a document to a course."""
-    if "file" not in request.FILES:
-        return Response({"error": "No file provided"}, status=status.HTTP_400_BAD_REQUEST)
-
-    course_id = request.data.get("course_id")
-    course = get_object_or_404(Courses, id=course_id)
-
-    documents = Documents.objects.filter(course=course).count()
-    if documents >= 5:
-        return Response({"error": "You can only have 5 documents per course"}, status=status.HTTP_400_BAD_REQUEST)
-    
-    try:
-        document = Documents.objects.create(
-            user=request.user,
-            course=course,
-            file=request.FILES["file"],
-        )
-        process_file(document.file.path, document.id)
-        return Response({"message": "File uploaded successfully", 
-                         "document":DocumentsSerializer(document).data}, 
-                         status=status.HTTP_201_CREATED)
-    
-    except Exception as e:
-        if "document" in locals():
-            document.delete()  
-        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    logger.info("add_document called by user=%s files=%s data=%s", request.user.username if request.user else None, request.FILES.keys(), request.data)
+    return DocumentService.add_document(request)
         
 
 @api_view(["DELETE"])
 @permission_classes([IsAuthenticated, IsLibraryCreatorOrAdmin])
 def delete_document(request):
-    doc_id = request.data.get("doc_id")
-    try:
-        document = get_object_or_404(Documents, id=doc_id)
-        document.delete()
-        message = f"{document.file.name} has been deleted"
-    except Documents.DoesNotExist:
-        message = "The document does not exist"
-    return Response({"message": message})
+    logger.info("delete_document called by user=%s data=%s", request.user.username if request.user else None, request.data)
+    return DocumentService.delete_document(request)
         
 
 @api_view(["DELETE"])
@@ -209,6 +148,7 @@ def delete_library(request):
     library.delete()
     return Response({"message": f"{library.library_name} has been deleted"})
 
+
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_libraries(request):
@@ -216,7 +156,7 @@ def get_libraries(request):
     libraries = Libraries.objects.filter(Q(members__user=request.user) 
                                          | Q(creator=request.user, joinable=True)).distinct()
     user_library = Libraries.objects.get(creator=request.user, joinable=False)
-    # print(get_response())
+    
     response = {
         "header": "Libraries",
         "user": LibrariesSerializer(user_library).data,
@@ -230,7 +170,7 @@ def get_libraries(request):
 @permission_classes([IsAuthenticated, IsLibraryMember])
 def get_courses(request):
     """Get all courses for a library."""
-    library_id = request.GET.get("library_id")
+    library_id = request.query_params.get("library_id")
     library = get_object_or_404(Libraries, id=library_id)
     courses = Courses.objects.filter(library=library)
     serializer = CoursesSerializer(courses, many=True)
@@ -240,6 +180,7 @@ def get_courses(request):
         "body": serializer.data,
         "active": has_edit_permission(request.user, library),
     }
+    logger.info("get_courses for library_id=%s by user=%s", library_id, request.user.username if request.user else None)
     return Response(response, status=status.HTTP_200_OK)
 
 
@@ -247,16 +188,17 @@ def get_courses(request):
 @permission_classes([IsAuthenticated, IsLibraryMember])
 def get_documents(request):
     """Get all documents for a course."""
-    course_id = request.GET.get("course_id")
+    course_id = request.query_params.get("course_id")
     course = get_object_or_404(Courses, id=course_id)
     documents = Documents.objects.filter(course=course)
-    library_id = request.GET.get("library_id")
+    library_id = request.query_params.get("library_id")
     library = get_object_or_404(Libraries, id=library_id)
     serializer = DocumentsSerializer(documents, many=True)
     response = {
         "permission": has_edit_permission(request.user, library),
         "data": serializer.data
     }
+    logger.info("get_documents for course_id=%s by user=%s", course_id, request.user.username if request.user else None)
     return Response(response, status=status.HTTP_200_OK)
 
 
@@ -264,7 +206,7 @@ def get_documents(request):
 @permission_classes([IsAuthenticated, IsLibraryMember])
 def get_members(request):
     """Get all members for a library."""
-    library_id = request.GET.get("library_id")
+    library_id = request.query_params.get("library_id")
     library = get_object_or_404(Libraries, id=library_id)
     admins = Admins.objects.filter(library=library)
     admin_serializer = MembersSerializer(admins, many=True)
@@ -280,6 +222,7 @@ def get_members(request):
         "active": False,
         "creator": is_creator(request.user, library),
     }
+    logger.info("get_members for library_id=%s by user=%s", library_id, request.user.username if request.user else None)
     return Response(response, status=status.HTTP_200_OK)
 
 
@@ -287,24 +230,26 @@ def get_members(request):
 @permission_classes([IsAuthenticated, IsLibraryMember])
 def query_llm(request):
     """This function is used to query the LLM."""
-    query = request.GET.get("query")
-    course_id = request.GET.get("course_id")
-    course = get_object_or_404(Courses, id=course_id)
-    documents = Documents.objects.filter(course=course)
-    document_ids = [document.id for document in documents]
-    if not query:
-        return Response({"error": "Query is required"})
-    if not document_ids:
-        return Response({"error": "No documents found"})
-    if not course:
-        return Response({"error": "Course not found"})
-    if not documents:
-        return Response({"error": "No documents found"})
+    serializer = QueryLLMSerializer(data=request.query_params)
+    serializer.is_valid(raise_exception=True)
+
+    query = serializer.validated_data["query"]
+    course_id = serializer.validated_data["course_id"]
+
+    course, documents = CourseService.get_documents_for_course(course_id)
+    document_ids = [d.id for d in documents]
     try:
-        response = get_chain(document_ids, query, course_id, request.user.id)
+        logger.info("query_llm called: user=%s course_id=%s query=%s document_count=%s", request.user.username if request.user else None, course_id, query, len(document_ids))
+        langraph_service = LangGraphService.get_instance()
+        response = langraph_service.get_chain(document_ids, query, course_id, request.user.id)
+        logger.info("LLM response generated for user=%s course_id=%s", request.user.username if request.user else None, course_id)
         return Response({"LLM_response": response})
+    except (ConnectionError, TimeoutError) as e:
+        logger.exception("LLM connection error: %s", e)
+        raise LLMServiceError(detail=str(e))
     except Exception as e:
-        return Response({"error": str(e)})
+        logger.exception("Unexpected error querying LLM: %s", e)
+        raise LLMServiceError(detail="An unexpected error occurred while querying the LLM service.")
     
 
 
@@ -312,8 +257,11 @@ def query_llm(request):
 @permission_classes([IsAuthenticated, IsLibraryMember])
 def quiz(request):
     """This function is used to generate a quiz."""
-    document_id = request.GET.get("document_id")
+    document_id = request.query_params.get("document_id")
     document = get_object_or_404(Documents, id=document_id)
-    number_of_questions = request.GET.get("number_of_questions")
-    response = get_quiz(document.id, number_of_questions)
+    number_of_questions = request.query_params.get("number_of_questions")
+    logger.info("quiz generation requested by user=%s document_id=%s num=%s", request.user.username if request.user else None, document_id, number_of_questions)
+    langraph_service = LangGraphService.get_instance()
+    response = langraph_service.get_quiz(document.id, number_of_questions)
+    logger.info("quiz generated for document_id=%s", document_id)
     return Response(response)

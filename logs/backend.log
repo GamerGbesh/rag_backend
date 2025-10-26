@@ -1,0 +1,551 @@
+2025-10-26 13:04:03,826 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:04:03,826 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:06:17,448 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:06:17,449 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:06:23,755 [INFO] rag.services.langraph_service: Creating qdrant collection 'documents'
+2025-10-26 13:30:09,159 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:30:09,160 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:51:15,893 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:51:15,894 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:51:35,572 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:51:35,572 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:51:42,068 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 13:53:05,222 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\apps.py changed, reloading.
+2025-10-26 13:53:17,806 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:53:17,806 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:53:23,568 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 13:58:53,841 [WARNING] django.request: Unauthorized: /Libraries
+2025-10-26 13:58:53,841 [WARNING] django.request: Unauthorized: /Libraries
+2025-10-26 13:58:53,843 [WARNING] django.server: "GET /Libraries HTTP/1.1" 401 58
+2025-10-26 13:58:53,843 [WARNING] django.server: "GET /Libraries HTTP/1.1" 401 58
+2025-10-26 13:59:04,766 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\authentication\views.py changed, reloading.
+2025-10-26 13:59:18,301 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:59:18,301 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:59:23,632 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 13:59:31,580 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\authentication\views.py changed, reloading.
+2025-10-26 13:59:41,842 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 13:59:41,843 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 13:59:47,194 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 13:59:52,652 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py changed, reloading.
+2025-10-26 14:00:03,208 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 14:00:03,208 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 14:00:11,636 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 14:00:18,163 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py changed, reloading.
+2025-10-26 14:00:28,567 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 14:00:28,567 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 14:00:33,766 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 14:00:39,432 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\serializers.py changed, reloading.
+2025-10-26 14:00:50,653 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 14:00:50,653 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 14:00:56,553 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 14:01:00,860 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\models.py changed, reloading.
+2025-10-26 14:01:14,174 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 14:01:14,174 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 14:01:19,552 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 14:01:26,602 [INFO] django.server: "OPTIONS /auth/login/ HTTP/1.1" 200 0
+2025-10-26 14:01:26,620 [INFO] authentication.views: Login attempt for username=gbesh
+2025-10-26 14:01:27,321 [INFO] authentication.views: User login successful: user_id=4
+2025-10-26 14:01:27,561 [INFO] django.server: "POST /auth/login/ HTTP/1.1" 200 483
+2025-10-26 14:01:27,701 [INFO] django.server: "OPTIONS /Libraries HTTP/1.1" 200 0
+2025-10-26 14:01:27,703 [INFO] django.server: "OPTIONS /Libraries HTTP/1.1" 200 0
+2025-10-26 14:01:27,809 [INFO] django.server: "GET /Libraries HTTP/1.1" 200 265
+2025-10-26 14:01:27,809 [INFO] django.server: "GET /Libraries HTTP/1.1" 200 265
+2025-10-26 14:01:41,727 [INFO] django.server: "OPTIONS /getCourses?library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:01:41,727 [INFO] django.server: "OPTIONS /getCourses?library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:01:41,830 [INFO] rag.views: get_courses for library_id=3 by user=gbesh
+2025-10-26 14:01:41,830 [INFO] rag.views: get_courses for library_id=3 by user=gbesh
+2025-10-26 14:01:41,832 [INFO] django.server: "GET /getCourses?library_id=3 HTTP/1.1" 200 670
+2025-10-26 14:01:41,832 [INFO] django.server: "GET /getCourses?library_id=3 HTTP/1.1" 200 670
+2025-10-26 14:01:43,268 [INFO] django.server: "OPTIONS /getDocuments?course_id=40&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:01:43,338 [INFO] rag.views: get_documents for course_id=40 by user=gbesh
+2025-10-26 14:01:43,339 [INFO] django.server: "GET /getDocuments?course_id=40&library_id=3 HTTP/1.1" 200 340
+2025-10-26 14:01:44,836 [INFO] django.server: "OPTIONS /getDocuments?course_id=41&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:01:44,902 [INFO] rag.views: get_documents for course_id=41 by user=gbesh
+2025-10-26 14:01:44,902 [INFO] django.server: "GET /getDocuments?course_id=41&library_id=3 HTTP/1.1" 200 29
+2025-10-26 14:01:45,883 [INFO] django.server: "OPTIONS /getDocuments?course_id=42&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:01:45,949 [INFO] rag.views: get_documents for course_id=42 by user=gbesh
+2025-10-26 14:01:45,951 [INFO] django.server: "GET /getDocuments?course_id=42&library_id=3 HTTP/1.1" 200 155
+2025-10-26 14:01:46,904 [INFO] rag.views: get_documents for course_id=40 by user=gbesh
+2025-10-26 14:01:46,905 [INFO] django.server: "GET /getDocuments?course_id=40&library_id=3 HTTP/1.1" 200 340
+2025-10-26 14:01:51,855 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:01:51,859 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:01:52,033 [INFO] rag.views: quiz generation requested by user=gbesh document_id=69 num=5
+2025-10-26 14:01:52,046 [INFO] rag.views: quiz generation requested by user=gbesh document_id=69 num=5
+2025-10-26 14:01:52,061 [ERROR] rag.services.langgraph_service: Failed to generate quiz questions
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:01:52,065 [ERROR] rag.services.langgraph_service: Failed to generate quiz questions
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:01:52,330 [ERROR] django.request: Internal Server Error: /quiz
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py", line 265, in quiz
+    response = langraph_service.get_quiz(document.id, number_of_questions)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:01:52,336 [ERROR] django.request: Internal Server Error: /quiz
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py", line 265, in quiz
+    response = langraph_service.get_quiz(document.id, number_of_questions)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:01:52,346 [ERROR] django.server: "GET /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 500 214361
+2025-10-26 14:01:52,352 [ERROR] django.server: "GET /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 500 214361
+2025-10-26 14:06:43,322 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py changed, reloading.
+2025-10-26 14:06:58,022 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 14:06:58,022 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 14:07:04,621 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 14:07:05,690 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:07:05,691 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:07:05,748 [WARNING] django.request: Unauthorized: /quiz
+2025-10-26 14:07:05,749 [WARNING] django.request: Unauthorized: /quiz
+2025-10-26 14:07:05,750 [WARNING] django.server: "GET /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 401 172
+2025-10-26 14:07:05,751 [WARNING] django.server: "GET /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 401 172
+2025-10-26 14:07:05,809 [INFO] django.server: "OPTIONS /auth/api/token/refresh/ HTTP/1.1" 200 0
+2025-10-26 14:07:05,809 [INFO] django.server: "OPTIONS /auth/api/token/refresh/ HTTP/1.1" 200 0
+2025-10-26 14:07:05,919 [INFO] django.server: "POST /auth/api/token/refresh/ HTTP/1.1" 200 241
+2025-10-26 14:07:05,923 [INFO] django.server: "POST /auth/api/token/refresh/ HTTP/1.1" 200 241
+2025-10-26 14:07:05,978 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:07:05,980 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:07:22,909 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:07:22,910 [INFO] django.server: "OPTIONS /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:07:23,000 [INFO] rag.views: quiz generation requested by user=gbesh document_id=69 num=5
+2025-10-26 14:07:23,006 [INFO] rag.views: quiz generation requested by user=gbesh document_id=69 num=5
+2025-10-26 14:07:23,037 [ERROR] rag.services.langgraph_service: Failed to generate quiz questions
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:07:23,038 [ERROR] rag.services.langgraph_service: Failed to generate quiz questions
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:07:23,144 [ERROR] django.request: Internal Server Error: /quiz
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py", line 265, in quiz
+    response = langraph_service.get_quiz(document.id, number_of_questions)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:07:23,145 [ERROR] django.request: Internal Server Error: /quiz
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py", line 265, in quiz
+    response = langraph_service.get_quiz(document.id, number_of_questions)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 247, in get_quiz
+    response = qa_chain.invoke({"query": "Generate quiz questions"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 170, in invoke
+    raise e
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\base.py", line 160, in invoke
+    self._call(inputs, run_manager=run_manager)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 151, in _call
+    docs = self._get_docs(question, run_manager=_run_manager)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain\chains\retrieval_qa\base.py", line 271, in _get_docs
+    return self.retriever.invoke(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\retrievers.py", line 259, in invoke
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_core\vectorstores\base.py", line 1074, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 508, in similarity_search
+    results = self.similarity_search_with_score(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langchain_qdrant\qdrant.py", line 554, in similarity_search_with_score
+    results = self.client.query_points(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 559, in query_points
+    return self._client.query_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 637, in query_points
+    grpc.QueryPoints(
+ValueError: Protocol message Condition has no "key" field.
+2025-10-26 14:07:23,154 [ERROR] django.server: "GET /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 500 214333
+2025-10-26 14:07:23,154 [ERROR] django.server: "GET /quiz?document_id=69&number_of_questions=5&library_id=3 HTTP/1.1" 500 214333
+2025-10-26 14:07:41,276 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py changed, reloading.
+2025-10-26 14:07:51,208 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 14:07:51,208 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 14:07:56,525 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-10-26 14:08:57,793 [INFO] django.server: "GET /Libraries HTTP/1.1" 200 265
+2025-10-26 14:08:57,866 [INFO] django.server: "GET /Libraries HTTP/1.1" 200 265
+2025-10-26 14:08:59,142 [INFO] rag.views: get_courses for library_id=3 by user=gbesh
+2025-10-26 14:08:59,143 [INFO] django.server: "GET /getCourses?library_id=3 HTTP/1.1" 200 670
+2025-10-26 14:08:59,220 [INFO] rag.views: get_courses for library_id=3 by user=gbesh
+2025-10-26 14:08:59,221 [INFO] django.server: "GET /getCourses?library_id=3 HTTP/1.1" 200 670
+2025-10-26 14:09:00,334 [INFO] rag.views: get_documents for course_id=40 by user=gbesh
+2025-10-26 14:09:00,335 [INFO] django.server: "GET /getDocuments?course_id=40&library_id=3 HTTP/1.1" 200 340
+2025-10-26 14:09:03,143 [INFO] django.server: "OPTIONS /question?query=Hello&course_id=40&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:09:03,145 [INFO] django.server: "OPTIONS /question?query=Hello&course_id=40&library_id=3 HTTP/1.1" 200 0
+2025-10-26 14:09:03,257 [INFO] rag.views: query_llm called: user=gbesh course_id=40 query=Hello document_count=2
+2025-10-26 14:09:03,258 [INFO] rag.views: query_llm called: user=gbesh course_id=40 query=Hello document_count=2
+2025-10-26 14:09:03,302 [ERROR] rag.views: Unexpected error querying LLM: No human message found in state.messages
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py", line 244, in query_llm
+    response = langraph_service.get_chain(document_ids, query, course_id, request.user.id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 219, in get_chain
+    return self.stream_graph_updates(graph, query, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 181, in stream_graph_updates
+    for message in graph.stream({"messages": [{"role": "user", "content": query}]}, config=config):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\pregel\__init__.py", line 2340, in stream
+    for _ in runner.tick(
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\pregel\runner.py", line 158, in tick
+    run_with_retry(
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\utils\runnable.py", line 606, in invoke
+    input = step.invoke(input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\utils\runnable.py", line 371, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 169, in chatbot
+    raise ValueError("No human message found in state.messages")
+ValueError: No human message found in state.messages
+During task with name 'chatbot' and id '4972665e-6872-204c-295f-7cdf23f5a6dd'
+2025-10-26 14:09:03,307 [ERROR] rag.views: Unexpected error querying LLM: No human message found in state.messages
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\views.py", line 244, in query_llm
+    response = langraph_service.get_chain(document_ids, query, course_id, request.user.id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 219, in get_chain
+    return self.stream_graph_updates(graph, query, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 181, in stream_graph_updates
+    for message in graph.stream({"messages": [{"role": "user", "content": query}]}, config=config):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\pregel\__init__.py", line 2340, in stream
+    for _ in runner.tick(
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\pregel\runner.py", line 158, in tick
+    run_with_retry(
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\utils\runnable.py", line 606, in invoke
+    input = step.invoke(input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\langgraph\utils\runnable.py", line 371, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 169, in chatbot
+    raise ValueError("No human message found in state.messages")
+ValueError: No human message found in state.messages
+During task with name 'chatbot' and id 'cdc59765-7e24-0872-5c31-03777991b056'
+2025-10-26 14:09:03,363 [ERROR] django.request: Service Unavailable: /question
+2025-10-26 14:09:03,365 [ERROR] django.request: Service Unavailable: /question
+2025-10-26 14:09:03,366 [ERROR] django.server: "GET /question?query=Hello&course_id=40&library_id=3 HTTP/1.1" 503 73
+2025-10-26 14:09:03,367 [ERROR] django.server: "GET /question?query=Hello&course_id=40&library_id=3 HTTP/1.1" 503 73
+2025-10-26 14:09:34,834 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py changed, reloading.
+2025-10-26 14:09:45,180 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-10-26 14:09:45,181 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-10-26 14:09:50,970 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
