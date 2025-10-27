@@ -4,7 +4,7 @@ This module contains a thin service layer around the vector store (Qdrant), the
 embedder, and the LLM chain used to answer queries and generate quizzes.
 """
 
-from typing import Any, List, Union
+from typing import Annotated, Any, List, Union
 import logging
 
 from django.conf import settings
@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 
 
 class State(TypedDict):
-    messages: list  # messages are added to the graph via add_messages
+    messages: Annotated[list, add_messages]
 
 
 class QuizQuestion(BaseModel):
@@ -73,7 +73,7 @@ class LangGraphService:
 
         # Embedding model and vectorstore
         self.embed_model = HuggingFaceEmbeddings(model_name=embed_model_name)
-        self.qdrant_client = QdrantClient(qdrant_url, prefer_grpc=True)
+        self.qdrant_client = QdrantClient(qdrant_url, prefer_grpc=False)
         self.collection_name = collection_name
 
         # Ensure collection exists
@@ -117,14 +117,10 @@ class LangGraphService:
         document_ids may be a single int or a list of ints. The filter uses
         Qdrant-style `must`/`match` semantics as used by the project.
         """
-        if isinstance(document_ids, int):
-            ids = [document_ids]
-        else:
-            ids = list(document_ids)
 
         search_kwargs = {
             "k": k,
-            "filter": {"must": [{"key": "id", "match": {match_type: ids}}]},
+            "filter": {"must": [{"key": "id", "match": {match_type: document_ids}}]},
         }
         return self.vectorstore.as_retriever(search_kwargs=search_kwargs)
     
@@ -165,8 +161,8 @@ class LangGraphService:
         graph's message handling.
         """
         last_user_message = next((m for m in reversed(state["messages"]) if isinstance(m, HumanMessage)), None)
-        # if last_user_message is None:
-        #     raise ValueError("No human message found in state.messages")
+        if last_user_message is None:
+            raise ValueError("No human message found in state.messages")
 
         inputs = {"messages": state["messages"][:-1], "query": last_user_message.content}
         result = self.rag_chain.invoke(inputs)

@@ -56,15 +56,11 @@ def signup(request):
     """This function registers a new user"""
     logger.info("Signup attempt: %s", request.data.get("username"))
     serializer = UserRegistrationSerializer(data=request.data)
-    if serializer.is_valid(raise_exception=False):
-        serializer.save()
-        username = request.data.get("username")
-        if username:
-            username = username.lower()
-        password = request.data.get("password")
-        user = authenticate(username=username, password=password)
-        library_name = f"{username}'s Library"
-        library_description = f"Library for {username}"
+    if serializer.is_valid(raise_exception=True):
+        user = serializer.save()
+
+        library_name = f"{user.username}'s Library"
+        library_description = f"Library for {user.username}"
         Libraries.objects.create(
             library_name=library_name,
             library_description=library_description,

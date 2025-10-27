@@ -8,3 +8,6 @@ history.sqlite3-shm
 history.sqlite3-wal
 authentication/__pycache__
 authentication/migrations
+logs
+*__pycache__
+rag/alt_views.py

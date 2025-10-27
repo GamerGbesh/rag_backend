@@ -20,7 +20,7 @@ from langchain_community.document_loaders import (
     TextLoader,
 )
 from langchain.schema import Document
-from qdrant_client.models import PointStruct, Distance, VectorParams, Filter, FieldCondition, MatchValue, FilterSelector
+from qdrant_client.models import PointStruct, Filter, FieldCondition, MatchValue, FilterSelector
 from .langgraph_service import LangGraphService
 
 logger = logging.getLogger(__name__)
