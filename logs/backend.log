@@ -2603,3 +2603,578 @@ filter.must.Filter
 2025-10-26 15:07:31,844 [INFO] django.server: "OPTIONS /Libraries HTTP/1.1" 200 0
 2025-10-26 15:07:31,851 [INFO] django.server: "OPTIONS /Libraries HTTP/1.1" 200 0
 2025-10-26 15:07:31,879 [INFO] django.server: "OPTIONS /getCourses?library_id=3 HTTP/1.1" 200 0
+2025-11-08 09:21:47,089 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 09:21:47,089 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 09:21:56,044 [ERROR] rag.services.langgraph_service: Failed to ensure Qdrant collection 'documents'
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 106, in send_inner
+    response = self._client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 103, in ensure_collection
+    if not self.qdrant_client.collection_exists(self.collection_name):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 2097, in collection_exists
+    return self._client.collection_exists(collection_name=collection_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 2623, in collection_exists
+    result: Optional[models.CollectionExistence] = self.http.collections_api.collection_exists(
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 1157, in collection_exists
+    return self._build_for_collection_exists(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 87, in _build_for_collection_exists
+    return self.api_client.request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 79, in request
+    return self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 96, in send
+    response = self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 205, in __call__
+    return call_next(request)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 108, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-08 09:23:55,843 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 09:23:55,844 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 09:24:00,274 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 09:24:00,276 [INFO] rag.services.langgraph_service: Creating qdrant collection 'documents'
+2025-11-08 09:24:00,481 [INFO] httpx: HTTP Request: PUT http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 09:24:00,490 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 09:24:20,326 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 09:24:20,327 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 09:24:24,561 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 09:24:24,568 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 09:24:41,965 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 09:24:41,965 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 09:24:46,168 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 09:24:46,176 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 09:25:03,312 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 09:25:03,312 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 09:25:08,126 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 09:25:08,133 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 09:25:17,565 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 09:25:17,566 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 09:25:22,035 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 09:25:22,041 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 09:25:22,123 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 09:26:14,294 [WARNING] django.request: Not Found: /api/libraries/
+2025-11-08 09:26:14,296 [WARNING] django.server: "GET /api/libraries/ HTTP/1.1" 404 6571
+2025-11-08 09:26:37,533 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\urls.py changed, reloading.
+2025-11-08 09:26:52,650 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 09:26:52,650 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 09:26:57,271 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 09:26:57,291 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 09:26:57,407 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 09:27:06,334 [WARNING] django.request: Not Found: /api/libraries/
+2025-11-08 09:27:06,336 [WARNING] django.server: "GET /api/libraries/ HTTP/1.1" 404 6571
+2025-11-08 09:27:56,568 [WARNING] django.request: Not Found: /quiz
+2025-11-08 09:27:56,570 [WARNING] django.server: "GET /quiz HTTP/1.1" 404 2656
+2025-11-08 09:28:05,618 [WARNING] django.request: Unauthorized: /api/libraries
+2025-11-08 09:28:05,619 [WARNING] django.server: "GET /api/libraries HTTP/1.1" 401 172
+2025-11-08 09:28:49,702 [WARNING] django.request: Not Found: /api/libraries/
+2025-11-08 09:28:49,702 [WARNING] django.server: "GET /api/libraries/ HTTP/1.1" 404 6571
+2025-11-08 09:28:56,177 [WARNING] django.request: Not Found: /api/libraries/
+2025-11-08 09:28:56,178 [WARNING] django.server: "GET /api/libraries/ HTTP/1.1" 404 6571
+2025-11-08 09:29:12,144 [WARNING] django.request: Not Found: /api/libraries/
+2025-11-08 09:29:12,145 [WARNING] django.server: "GET /api/libraries/ HTTP/1.1" 404 6571
+2025-11-08 09:29:18,306 [WARNING] django.request: Unauthorized: /api/libraries
+2025-11-08 09:29:18,307 [WARNING] django.server: "GET /api/libraries HTTP/1.1" 401 58
+2025-11-08 10:21:59,615 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 10:22:28,588 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 10:23:03,484 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:23:03,485 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:23:13,083 [ERROR] rag.services.langgraph_service: Failed to ensure Qdrant collection 'documents'
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 106, in send_inner
+    response = self._client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 103, in ensure_collection
+    if not self.qdrant_client.collection_exists(self.collection_name):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 2097, in collection_exists
+    return self._client.collection_exists(collection_name=collection_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 2623, in collection_exists
+    result: Optional[models.CollectionExistence] = self.http.collections_api.collection_exists(
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 1157, in collection_exists
+    return self._build_for_collection_exists(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 87, in _build_for_collection_exists
+    return self.api_client.request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 79, in request
+    return self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 96, in send
+    response = self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 205, in __call__
+    return call_next(request)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 108, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-08 10:23:26,212 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:23:26,213 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:23:33,178 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 10:23:33,197 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 10:23:33,446 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 10:24:04,512 [INFO] django.server: "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+2025-11-08 10:24:10,252 [INFO] django.server: "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+2025-11-08 10:24:49,108 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\backend\settings.py changed, reloading.
+2025-11-08 10:25:02,903 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:25:02,904 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:25:09,308 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 10:25:09,333 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 10:25:09,461 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 10:25:11,153 [INFO] django.server: "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+2025-11-08 10:25:28,255 [INFO] django.server: "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+2025-11-08 10:26:02,289 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:26:02,289 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:26:08,097 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 10:26:08,105 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 10:26:17,135 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:26:17,135 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:26:24,383 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 10:26:24,396 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 10:26:24,491 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 10:26:29,579 [INFO] django.server: "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+2025-11-08 10:26:29,595 [INFO] authentication.views: Login attempt for username=gbesh
+2025-11-08 10:26:30,490 [WARNING] authentication.views: Invalid login for username=gbesh
+2025-11-08 10:26:30,491 [WARNING] django.request: Bad Request: /api/auth/login/
+2025-11-08 10:26:30,492 [WARNING] django.server: "POST /api/auth/login/ HTTP/1.1" 400 33
+2025-11-08 10:27:06,750 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:27:06,750 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:27:14,898 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 10:27:14,916 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 10:28:49,581 [INFO] authentication.views: Login attempt for username=gbesh
+2025-11-08 10:28:50,435 [WARNING] authentication.views: Invalid login for username=gbesh
+2025-11-08 10:28:50,436 [WARNING] django.request: Bad Request: /api/auth/login/
+2025-11-08 10:28:50,436 [WARNING] django.server: "POST /api/auth/login/ HTTP/1.1" 400 33
+2025-11-08 10:28:54,051 [INFO] authentication.views: Login attempt for username=gbesh
+2025-11-08 10:28:54,908 [WARNING] authentication.views: Invalid login for username=gbesh
+2025-11-08 10:28:54,909 [WARNING] django.request: Bad Request: /api/auth/login/
+2025-11-08 10:28:54,909 [WARNING] django.server: "POST /api/auth/login/ HTTP/1.1" 400 33
+2025-11-08 10:29:04,346 [INFO] authentication.views: Login attempt for username=gbesh
+2025-11-08 10:29:05,096 [WARNING] authentication.views: Invalid login for username=gbesh
+2025-11-08 10:29:05,097 [WARNING] django.request: Bad Request: /api/auth/login/
+2025-11-08 10:29:05,097 [WARNING] django.server: "POST /api/auth/login/ HTTP/1.1" 400 33
+2025-11-08 10:29:12,953 [INFO] authentication.views: Login attempt for username=gbesh
+2025-11-08 10:29:13,718 [WARNING] authentication.views: Invalid login for username=gbesh
+2025-11-08 10:29:13,719 [WARNING] django.request: Bad Request: /api/auth/login/
+2025-11-08 10:29:13,720 [WARNING] django.server: "POST /api/auth/login/ HTTP/1.1" 400 33
+2025-11-08 10:29:37,139 [INFO] django.server: "OPTIONS /api/auth/signup/ HTTP/1.1" 200 0
+2025-11-08 10:29:37,142 [INFO] authentication.views: Signup attempt: first
+2025-11-08 10:29:37,215 [WARNING] django.request: Bad Request: /api/auth/signup/
+2025-11-08 10:29:37,215 [WARNING] django.server: "POST /api/auth/signup/ HTTP/1.1" 400 122
+2025-11-08 10:29:51,090 [INFO] authentication.views: Signup attempt: first
+2025-11-08 10:29:51,144 [WARNING] django.request: Bad Request: /api/auth/signup/
+2025-11-08 10:29:51,145 [WARNING] django.server: "POST /api/auth/signup/ HTTP/1.1" 400 122
+2025-11-08 10:30:12,347 [INFO] authentication.views: Login attempt for username=gbesh
+2025-11-08 10:30:13,065 [WARNING] authentication.views: Invalid login for username=gbesh
+2025-11-08 10:30:13,066 [WARNING] django.request: Bad Request: /api/auth/login/
+2025-11-08 10:30:13,066 [WARNING] django.server: "POST /api/auth/login/ HTTP/1.1" 400 33
+2025-11-08 10:31:15,480 [INFO] authentication.views: Signup attempt: first
+2025-11-08 10:31:16,288 [INFO] authentication.views: User signed up and default library created: user_id=4
+2025-11-08 10:31:16,315 [INFO] django.server: "POST /api/auth/signup/ HTTP/1.1" 200 483
+2025-11-08 10:31:17,288 [INFO] django.server: "OPTIONS /api/libraries HTTP/1.1" 200 0
+2025-11-08 10:31:17,289 [INFO] django.server: "OPTIONS /api/libraries HTTP/1.1" 200 0
+2025-11-08 10:31:17,417 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:31:17,418 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:31:55,994 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:31:56,051 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:35:03,634 [INFO] django.server: "OPTIONS /api/libraries/4/courses HTTP/1.1" 200 0
+2025-11-08 10:35:03,637 [INFO] django.server: "OPTIONS /api/libraries/4/courses HTTP/1.1" 200 0
+2025-11-08 10:35:03,827 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:35:03,828 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:35:03,829 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:35:03,829 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:35:11,362 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:35:11,362 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:35:11,472 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:35:11,473 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:36:45,522 [INFO] django.server: "OPTIONS /api/auth/logout/ HTTP/1.1" 200 0
+2025-11-08 10:36:45,522 [INFO] django.server: "OPTIONS /api/auth/logout/ HTTP/1.1" 200 0
+2025-11-08 10:36:45,548 [WARNING] django.request: Unauthorized: /api/auth/logout/
+2025-11-08 10:36:45,550 [WARNING] django.request: Unauthorized: /api/auth/logout/
+2025-11-08 10:36:45,551 [WARNING] django.server: "GET /api/auth/logout/ HTTP/1.1" 401 172
+2025-11-08 10:36:45,552 [WARNING] django.server: "GET /api/auth/logout/ HTTP/1.1" 401 172
+2025-11-08 10:36:45,621 [INFO] django.server: "OPTIONS /auth/api/token/refresh/ HTTP/1.1" 200 0
+2025-11-08 10:36:45,621 [INFO] django.server: "OPTIONS /auth/api/token/refresh/ HTTP/1.1" 200 0
+2025-11-08 10:36:45,712 [WARNING] django.request: Not Found: /auth/api/token/refresh/
+2025-11-08 10:36:45,712 [WARNING] django.request: Not Found: /auth/api/token/refresh/
+2025-11-08 10:36:45,714 [WARNING] django.server: "POST /auth/api/token/refresh/ HTTP/1.1" 404 2714
+2025-11-08 10:36:45,714 [WARNING] django.server: "POST /auth/api/token/refresh/ HTTP/1.1" 404 2714
+2025-11-08 10:36:54,336 [INFO] authentication.views: Login attempt for username=first
+2025-11-08 10:36:55,130 [INFO] authentication.views: User login successful: user_id=4
+2025-11-08 10:36:55,132 [INFO] django.server: "POST /api/auth/login/ HTTP/1.1" 200 483
+2025-11-08 10:36:55,723 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:36:55,723 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:36:59,243 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:36:59,244 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:36:59,245 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:36:59,246 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:41:38,470 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:41:38,567 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:41:40,034 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:41:40,036 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:41:40,037 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:41:40,038 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:41:43,609 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:41:43,612 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:41:43,614 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:41:43,615 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:41:50,218 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:41:50,222 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:41:53,400 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:41:53,440 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:41:54,760 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:41:54,761 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:41:54,872 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:41:54,873 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:42:13,500 [WARNING] django.request: Unauthorized: /api/libraries
+2025-11-08 10:42:13,501 [WARNING] django.server: "GET /api/libraries HTTP/1.1" 401 172
+2025-11-08 10:42:13,511 [WARNING] django.request: Unauthorized: /api/libraries
+2025-11-08 10:42:13,512 [WARNING] django.server: "GET /api/libraries HTTP/1.1" 401 172
+2025-11-08 10:42:13,598 [WARNING] django.request: Not Found: /auth/api/token/refresh/
+2025-11-08 10:42:13,598 [WARNING] django.request: Not Found: /auth/api/token/refresh/
+2025-11-08 10:42:13,599 [WARNING] django.server: "POST /auth/api/token/refresh/ HTTP/1.1" 404 2714
+2025-11-08 10:42:13,599 [WARNING] django.server: "POST /auth/api/token/refresh/ HTTP/1.1" 404 2714
+2025-11-08 10:42:27,151 [INFO] authentication.views: Login attempt for username=first
+2025-11-08 10:42:27,959 [INFO] authentication.views: User login successful: user_id=4
+2025-11-08 10:42:27,961 [INFO] django.server: "POST /api/auth/login/ HTTP/1.1" 200 483
+2025-11-08 10:42:28,449 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:42:28,454 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:42:32,145 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:42:32,146 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:42:32,146 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:42:32,147 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:42:54,271 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\permissions.py changed, reloading.
+2025-11-08 10:43:14,118 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:43:14,119 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:43:24,459 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 10:43:24,486 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 10:43:24,730 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 10:43:26,641 [INFO] django.server: "OPTIONS /api/libraries HTTP/1.1" 200 0
+2025-11-08 10:43:26,644 [INFO] django.server: "OPTIONS /api/libraries HTTP/1.1" 200 0
+2025-11-08 10:43:26,999 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:43:27,018 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:43:29,606 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:43:29,608 [WARNING] django.request: Forbidden: /api/libraries/4/courses
+2025-11-08 10:43:29,609 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:43:29,609 [WARNING] django.server: "GET /api/libraries/4/courses HTTP/1.1" 403 63
+2025-11-08 10:43:48,738 [INFO] django.utils.autoreload: C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\permissions.py changed, reloading.
+2025-11-08 10:44:01,626 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-08 10:44:01,626 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-08 10:44:08,046 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents/exists "HTTP/1.1 200 OK"
+2025-11-08 10:44:08,064 [INFO] httpx: HTTP Request: GET http://localhost:6333/collections/documents "HTTP/1.1 200 OK"
+2025-11-08 10:44:08,155 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2025-11-08 10:44:45,598 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:44:45,685 [INFO] django.server: "GET /api/libraries HTTP/1.1" 200 264
+2025-11-08 10:44:47,712 [INFO] django.server: "OPTIONS /api/libraries/4/courses?library_id=4 HTTP/1.1" 200 0
+2025-11-08 10:44:47,717 [INFO] django.server: "OPTIONS /api/libraries/4/courses?library_id=4 HTTP/1.1" 200 0
+2025-11-08 10:44:47,868 [INFO] rag.views: get_courses for library_id=4 by user=first
+2025-11-08 10:44:47,869 [INFO] rag.views: get_courses for library_id=4 by user=first
+2025-11-08 10:44:47,929 [INFO] django.server: "GET /api/libraries/4/courses?library_id=4 HTTP/1.1" 200 266
+2025-11-08 10:44:47,929 [INFO] django.server: "GET /api/libraries/4/courses?library_id=4 HTTP/1.1" 200 266
+2025-11-08 10:45:26,298 [INFO] django.server: "OPTIONS /api/libraries/2/courses?library_id=2 HTTP/1.1" 200 0
+2025-11-08 10:45:26,308 [INFO] django.server: "OPTIONS /api/libraries/2/courses?library_id=2 HTTP/1.1" 200 0
+2025-11-08 10:45:26,386 [WARNING] django.request: Forbidden: /api/libraries/2/courses
+2025-11-08 10:45:26,387 [WARNING] django.server: "GET /api/libraries/2/courses?library_id=2 HTTP/1.1" 403 63
+2025-11-08 10:45:26,394 [WARNING] django.request: Forbidden: /api/libraries/2/courses
+2025-11-08 10:45:26,395 [WARNING] django.server: "GET /api/libraries/2/courses?library_id=2 HTTP/1.1" 403 63
+2025-11-08 10:45:40,540 [INFO] django.server: "OPTIONS /api/libraries/3/courses?library_id=3 HTTP/1.1" 200 0
+2025-11-08 10:45:40,540 [INFO] django.server: "OPTIONS /api/libraries/3/courses?library_id=3 HTTP/1.1" 200 0
+2025-11-08 10:45:40,690 [WARNING] django.request: Forbidden: /api/libraries/3/courses
+2025-11-08 10:45:40,691 [WARNING] django.request: Forbidden: /api/libraries/3/courses
+2025-11-08 10:45:40,692 [WARNING] django.server: "GET /api/libraries/3/courses?library_id=3 HTTP/1.1" 403 63
+2025-11-08 10:45:40,692 [WARNING] django.server: "GET /api/libraries/3/courses?library_id=3 HTTP/1.1" 403 63
+2025-11-08 10:45:46,149 [INFO] rag.views: get_courses for library_id=4 by user=first
+2025-11-08 10:45:46,153 [INFO] rag.views: get_courses for library_id=4 by user=first
+2025-11-08 10:45:46,153 [INFO] django.server: "GET /api/libraries/4/courses?library_id=4 HTTP/1.1" 200 266
+2025-11-08 10:45:46,155 [INFO] django.server: "GET /api/libraries/4/courses?library_id=4 HTTP/1.1" 200 266
+2025-11-08 10:45:51,709 [INFO] authentication.views: Logout request for user_id=4
+2025-11-08 10:45:51,710 [INFO] django.server: "GET /api/auth/logout/ HTTP/1.1" 200 24
+2025-11-08 10:45:51,818 [INFO] authentication.views: Logout request for user_id=4
+2025-11-08 10:45:51,819 [INFO] django.server: "GET /api/auth/logout/ HTTP/1.1" 200 24
+2025-11-22 12:34:16,918 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-22 12:34:16,920 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-22 12:34:26,591 [ERROR] rag.services.langgraph_service: Failed to ensure Qdrant collection 'documents'
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 106, in send_inner
+    response = self._client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 103, in ensure_collection
+    if not self.qdrant_client.collection_exists(self.collection_name):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 2097, in collection_exists
+    return self._client.collection_exists(collection_name=collection_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 2623, in collection_exists
+    result: Optional[models.CollectionExistence] = self.http.collections_api.collection_exists(
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 1157, in collection_exists
+    return self._build_for_collection_exists(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 87, in _build_for_collection_exists
+    return self.api_client.request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 79, in request
+    return self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 96, in send
+    response = self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 205, in __call__
+    return call_next(request)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 108, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-22 12:34:40,335 [INFO] sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+2025-11-22 12:34:40,335 [INFO] sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-11-22 12:34:49,380 [ERROR] rag.services.langgraph_service: Failed to ensure Qdrant collection 'documents'
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 106, in send_inner
+    response = self._client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\Philemon\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\rag\services\langgraph_service.py", line 103, in ensure_collection
+    if not self.qdrant_client.collection_exists(self.collection_name):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_client.py", line 2097, in collection_exists
+    return self._client.collection_exists(collection_name=collection_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\qdrant_remote.py", line 2623, in collection_exists
+    result: Optional[models.CollectionExistence] = self.http.collections_api.collection_exists(
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 1157, in collection_exists
+    return self._build_for_collection_exists(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api\collections_api.py", line 87, in _build_for_collection_exists
+    return self.api_client.request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 79, in request
+    return self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 96, in send
+    response = self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 205, in __call__
+    return call_next(request)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Philemon\Desktop\Coding\education_system\backend\.venv\Lib\site-packages\qdrant_client\http\api_client.py", line 108, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-22 12:34:49,416 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

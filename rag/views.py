@@ -168,10 +168,9 @@ def get_libraries(request):
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated, IsLibraryMember])
-def get_courses(request):
+def get_courses(request, id):
     """Get all courses for a library."""
-    library_id = request.query_params.get("library_id")
-    library = get_object_or_404(Libraries, id=library_id)
+    library = get_object_or_404(Libraries, id=id)
     courses = Courses.objects.filter(library=library)
     serializer = CoursesSerializer(courses, many=True)
     response = {
@@ -180,16 +179,15 @@ def get_courses(request):
         "body": serializer.data,
         "active": has_edit_permission(request.user, library),
     }
-    logger.info("get_courses for library_id=%s by user=%s", library_id, request.user.username if request.user else None)
+    logger.info("get_courses for library_id=%s by user=%s", id, request.user.username if request.user else None)
     return Response(response, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated, IsLibraryMember])
-def get_documents(request):
+def get_documents(request, id):
     """Get all documents for a course."""
-    course_id = request.query_params.get("course_id")
-    course = get_object_or_404(Courses, id=course_id)
+    course = get_object_or_404(Courses, id=id)
     documents = Documents.objects.filter(course=course)
     library_id = request.query_params.get("library_id")
     library = get_object_or_404(Libraries, id=library_id)
@@ -198,7 +196,7 @@ def get_documents(request):
         "permission": has_edit_permission(request.user, library),
         "data": serializer.data
     }
-    logger.info("get_documents for course_id=%s by user=%s", course_id, request.user.username if request.user else None)
+    logger.info("get_documents for course_id=%s by user=%s", id, request.user.username if request.user else None)
     return Response(response, status=status.HTTP_200_OK)
 
 
